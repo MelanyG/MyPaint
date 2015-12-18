@@ -6,18 +6,23 @@
 //  Copyright (c) 2015 Melany Gulianovych. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "Board.h"
+#import "Drawer.h"
 
-@interface ViewController ()
 
-@end
 
-@implementation ViewController
+@implementation Board
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    
 }
+
+
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

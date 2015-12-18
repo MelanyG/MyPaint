@@ -9,11 +9,16 @@
 /* Begin PBXBuildFile section */
 		366C72901C22D0DC006076A5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 366C728F1C22D0DC006076A5 /* main.m */; };
 		366C72931C22D0DC006076A5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 366C72921C22D0DC006076A5 /* AppDelegate.m */; };
-		366C72961C22D0DC006076A5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 366C72951C22D0DC006076A5 /* ViewController.m */; };
+		366C72961C22D0DC006076A5 /* Board.m in Sources */ = {isa = PBXBuildFile; fileRef = 366C72951C22D0DC006076A5 /* Board.m */; };
 		366C72991C22D0DD006076A5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 366C72971C22D0DD006076A5 /* Main.storyboard */; };
 		366C729B1C22D0DD006076A5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 366C729A1C22D0DD006076A5 /* Images.xcassets */; };
 		366C729E1C22D0DD006076A5 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 366C729C1C22D0DD006076A5 /* LaunchScreen.xib */; };
 		366C72AA1C22D0DD006076A5 /* MyPaintTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 366C72A91C22D0DD006076A5 /* MyPaintTests.m */; };
+		366C72B51C22D17A006076A5 /* Drawer.m in Sources */ = {isa = PBXBuildFile; fileRef = 366C72B41C22D17A006076A5 /* Drawer.m */; };
+		369B193A1C242E1700027889 /* ViewControllerMain.m in Sources */ = {isa = PBXBuildFile; fileRef = 369B19391C242E1700027889 /* ViewControllerMain.m */; };
+		369B193D1C2433DF00027889 /* ColorPanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 369B193C1C2433DF00027889 /* ColorPanelController.m */; };
+		369B19401C2434E700027889 /* FigureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 369B193F1C2434E700027889 /* FigureViewController.m */; };
+		369B19441C2437FF00027889 /* CanvasViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 369B19431C2437FF00027889 /* CanvasViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,14 +37,24 @@
 		366C728F1C22D0DC006076A5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		366C72911C22D0DC006076A5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		366C72921C22D0DC006076A5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		366C72941C22D0DC006076A5 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		366C72951C22D0DC006076A5 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		366C72941C22D0DC006076A5 /* Board.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Board.h; sourceTree = "<group>"; };
+		366C72951C22D0DC006076A5 /* Board.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Board.m; sourceTree = "<group>"; };
 		366C72981C22D0DD006076A5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		366C729A1C22D0DD006076A5 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		366C729D1C22D0DD006076A5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		366C72A31C22D0DD006076A5 /* MyPaintTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyPaintTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		366C72A81C22D0DD006076A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		366C72A91C22D0DD006076A5 /* MyPaintTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyPaintTests.m; sourceTree = "<group>"; };
+		366C72B31C22D17A006076A5 /* Drawer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Drawer.h; sourceTree = "<group>"; };
+		366C72B41C22D17A006076A5 /* Drawer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Drawer.m; sourceTree = "<group>"; };
+		369B19381C242E1700027889 /* ViewControllerMain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerMain.h; sourceTree = "<group>"; };
+		369B19391C242E1700027889 /* ViewControllerMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerMain.m; sourceTree = "<group>"; };
+		369B193B1C2433DF00027889 /* ColorPanelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorPanelController.h; sourceTree = "<group>"; };
+		369B193C1C2433DF00027889 /* ColorPanelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorPanelController.m; sourceTree = "<group>"; };
+		369B193E1C2434E700027889 /* FigureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FigureViewController.h; sourceTree = "<group>"; };
+		369B193F1C2434E700027889 /* FigureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FigureViewController.m; sourceTree = "<group>"; };
+		369B19421C2437FF00027889 /* CanvasViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CanvasViewController.h; sourceTree = "<group>"; };
+		369B19431C2437FF00027889 /* CanvasViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CanvasViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,11 +98,12 @@
 			children = (
 				366C72911C22D0DC006076A5 /* AppDelegate.h */,
 				366C72921C22D0DC006076A5 /* AppDelegate.m */,
-				366C72941C22D0DC006076A5 /* ViewController.h */,
-				366C72951C22D0DC006076A5 /* ViewController.m */,
 				366C72971C22D0DD006076A5 /* Main.storyboard */,
+				366C72B31C22D17A006076A5 /* Drawer.h */,
+				366C72B41C22D17A006076A5 /* Drawer.m */,
 				366C729A1C22D0DD006076A5 /* Images.xcassets */,
 				366C729C1C22D0DD006076A5 /* LaunchScreen.xib */,
+				369B19411C24374100027889 /* ViewControllers */,
 				366C728D1C22D0DC006076A5 /* Supporting Files */,
 			);
 			path = MyPaint;
@@ -117,6 +133,23 @@
 				366C72A81C22D0DD006076A5 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		369B19411C24374100027889 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				369B19421C2437FF00027889 /* CanvasViewController.h */,
+				369B19431C2437FF00027889 /* CanvasViewController.m */,
+				366C72941C22D0DC006076A5 /* Board.h */,
+				366C72951C22D0DC006076A5 /* Board.m */,
+				369B193E1C2434E700027889 /* FigureViewController.h */,
+				369B193F1C2434E700027889 /* FigureViewController.m */,
+				369B193B1C2433DF00027889 /* ColorPanelController.h */,
+				369B193C1C2433DF00027889 /* ColorPanelController.m */,
+				369B19381C242E1700027889 /* ViewControllerMain.h */,
+				369B19391C242E1700027889 /* ViewControllerMain.m */,
+			);
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,9 +252,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				366C72961C22D0DC006076A5 /* ViewController.m in Sources */,
+				366C72B51C22D17A006076A5 /* Drawer.m in Sources */,
+				366C72961C22D0DC006076A5 /* Board.m in Sources */,
 				366C72931C22D0DC006076A5 /* AppDelegate.m in Sources */,
+				369B193A1C242E1700027889 /* ViewControllerMain.m in Sources */,
+				369B19441C2437FF00027889 /* CanvasViewController.m in Sources */,
+				369B193D1C2433DF00027889 /* ColorPanelController.m in Sources */,
 				366C72901C22D0DC006076A5 /* main.m in Sources */,
+				369B19401C2434E700027889 /* FigureViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,6 +452,7 @@
 				366C72AF1C22D0DD006076A5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		366C72B01C22D0DD006076A5 /* Build configuration list for PBXNativeTarget "MyPaintTests" */ = {
 			isa = XCConfigurationList;
@@ -422,6 +461,7 @@
 				366C72B21C22D0DD006076A5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
