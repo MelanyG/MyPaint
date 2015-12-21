@@ -7,34 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
-
-typedef enum
-{
-    Line,
-    triangle,
-    circle,
-    rectangle,
-    elipse,
-    square
-    
-} SelectedFigure;
-
-@protocol FigureDelegate
-
-@required
-
--(void) didSelectFigure:(UISegmentedControl*) Figure;
+#import "Board.h"
 
 
-@end
 
-@interface FigureViewController : UIViewController
+@protocol FigureDelegate;
 
-@property(nonatomic, assign) NSInteger tag;
-@property (strong, nonatomic) IBOutlet UISegmentedControl *Figure;
-@property(weak, nonatomic) id <FigureDelegate> delegate;
+@interface FigureViewController: UIViewController
 
-- (IBAction)selectShapeButtonPressed:(UISegmentedControl *)sender;
+@property(weak, nonatomic) id  delegate;//protocol
+
+
 
 @end
 

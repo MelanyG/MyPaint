@@ -7,9 +7,26 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FigureViewController.h"
+//#import "CanvasViewController.h"
+
+@protocol FigureDelegate;
+@class CanvasViewController;
 
 @interface Board : UIViewController
 
+@end
+
+@protocol FigureDelegate<NSObject>
+@required
+
+-(void) didSelectFigure:(NSInteger)tag;
+
 
 @end
+
+
+
+
+
 

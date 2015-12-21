@@ -56,14 +56,14 @@
                                     <constraint firstAttribute="height" constant="60" id="QcX-RF-UtN"/>
                                 </constraints>
                                 <connections>
-                                    <segue destination="6T0-z9-bKR" kind="embed" id="8OF-2L-0aV"/>
+                                    <segue destination="6T0-z9-bKR" kind="embed" identifier="FigureSegue" id="8OF-2L-0aV"/>
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9E3-JR-7di">
                                 <rect key="frame" x="0.0" y="0.0" width="568" height="478"/>
                                 <color key="backgroundColor" red="0.95834283759124084" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
-                                    <segue destination="gaT-Hg-Pbo" kind="embed" id="X9l-Tg-AFR"/>
+                                    <segue destination="gaT-Hg-Pbo" kind="embed" identifier="CanvasStory" id="X9l-Tg-AFR"/>
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LZG-Fi-CD7">
@@ -74,7 +74,7 @@
                                     <constraint firstAttribute="height" constant="60" id="oPK-Sg-rY0"/>
                                 </constraints>
                                 <connections>
-                                    <segue destination="7ju-gv-Rtb" kind="embed" id="zLP-O1-Lc1"/>
+                                    <segue destination="7ju-gv-Rtb" kind="embed" identifier="ColorSelected" id="zLP-O1-Lc1"/>
                                 </connections>
                             </containerView>
                         </subviews>
@@ -114,7 +114,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BHm-A4-es8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="110" y="364"/>
+            <point key="canvasLocation" x="786" y="364"/>
         </scene>
         <!--Figure View Controller-->
         <scene sceneID="kh2-Hg-p2F">
@@ -155,13 +155,10 @@
                         </constraints>
                     </view>
                     <toolbarItems/>
-                    <connections>
-                        <outlet property="Figure" destination="lzl-h6-Po3" id="Nr1-aO-7Zu"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="idD-GQ-6cA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-573" y="341"/>
+            <point key="canvasLocation" x="-343" y="364"/>
         </scene>
         <!--Canvas View Controller-->
         <scene sceneID="ewS-Xn-wYi">

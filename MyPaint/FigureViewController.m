@@ -8,6 +8,18 @@
 
 #import "FigureViewController.h"
 
+@interface FigureViewController ()
+typedef enum
+{
+    Line,
+    triangle,
+    circle,
+    rectangle,
+    elipse,
+    square
+    
+} SelectedFigure;
+@end
 
 
 @implementation FigureViewController
@@ -15,8 +27,8 @@
 
 - (IBAction)selectShapeButtonPressed:(UISegmentedControl *)sender
 {
-    self.tag = sender.selectedSegmentIndex;
     [self.delegate didSelectFigure:sender.selectedSegmentIndex];
 }
+
 
 @end

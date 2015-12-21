@@ -8,11 +8,15 @@
 
 #import "CanvasViewController.h"
 
-@protocol FigureDelegate;
+
+
 
 @interface CanvasViewController ()
 
-
+@property(nonatomic, strong) Drawer* rect;
+@property(nonatomic, assign) NSInteger tag; //for protocol
+@property(nonatomic, assign) CGPoint start;
+@property(nonatomic, assign) CGPoint stop;
 
 @end
 
@@ -20,12 +24,12 @@
 
 @implementation CanvasViewController
 
-#pragma mark-Figur selected Delegate
 
--(NSInteger) didSelectFigure:(UISegmentedControl*) Figure
+#pragma mark-Figure selected Delegate
+
+-(void) didSelectFigure:(NSInteger) tag
 {
-
-    return self.tag;
+    self.tag=tag;
 }
 
 

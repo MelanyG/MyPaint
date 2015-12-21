@@ -7,16 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "FigureViewController.h"
+//#import "FigureViewController.h"
 #import "Drawer.h"
-#import "ColorPanelController.h"
+#import "Board.h"
+//#import "ColorPanelController.h"
 
-@interface CanvasViewController : UIViewController
 
-@property(nonatomic, strong) Drawer* rect;
-@property(nonatomic, assign) NSInteger tag;
-@property(nonatomic, assign) CGPoint start;
-@property(nonatomic, assign) CGPoint stop;
+@interface CanvasViewController : UIViewController <FigureDelegate>
+
 
 
 
