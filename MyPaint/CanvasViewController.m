@@ -50,13 +50,13 @@
                                 startLocation:self.start
                                   endLocation:self.start];
     
-    self.rect.backgroundColor = [UIColor clearColor];
+//    self.rect.backgroundColor = [UIColor clearColor];
     [self.view addSubview:self.rect];
-    [UIView animateWithDuration:0.3
-                     animations:^{
-                         self.rect.transform=CGAffineTransformMakeScale(1.2f, 1.2f);
-                         self.rect.alpha=0.3;
-                     }];
+//    [UIView animateWithDuration:0.3
+//                     animations:^{
+//                         self.rect.transform=CGAffineTransformMakeScale(1.2f, 1.2f);
+//                         self.rect.alpha=0.3;
+//                     }];
     NSLog(@"touchesBegan,%@", NSStringFromCGRect(frame));
 }
 
