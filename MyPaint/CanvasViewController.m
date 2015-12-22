@@ -14,6 +14,8 @@
 @interface CanvasViewController ()
 
 @property(nonatomic, strong) Drawer* rect;
+@property(nonatomic, weak) UIView* draggingView;
+@property(nonatomic, assign)CGPoint touchesBegan;
 @property(nonatomic, assign) NSInteger tag; //for protocol
 @property(nonatomic, assign) CGPoint start;
 @property(nonatomic, assign) CGPoint stop;
@@ -52,11 +54,11 @@
     
 //    self.rect.backgroundColor = [UIColor clearColor];
     [self.view addSubview:self.rect];
-//    [UIView animateWithDuration:0.3
-//                     animations:^{
-//                         self.rect.transform=CGAffineTransformMakeScale(1.2f, 1.2f);
-//                         self.rect.alpha=0.3;
-//                     }];
+    [UIView animateWithDuration:0.3
+                     animations:^{
+                         self.rect.transform=CGAffineTransformMakeScale(1.2f, 1.2f);
+                         self.rect.alpha=0.3;
+                     }];
     NSLog(@"touchesBegan,%@", NSStringFromCGRect(frame));
 }
 

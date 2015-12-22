@@ -114,7 +114,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BHm-A4-es8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="786" y="364"/>
+            <point key="canvasLocation" x="391" y="355"/>
         </scene>
         <!--Figure View Controller-->
         <scene sceneID="kh2-Hg-p2F">
@@ -128,8 +128,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="568" height="60"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="lzl-h6-Po3">
-                                <rect key="frame" x="0.0" y="0.0" width="568" height="60"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="lzl-h6-Po3">
+                                <rect key="frame" x="0.0" y="12" width="568" height="29"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="59" id="pM5-1o-mvx"/>
@@ -137,10 +137,10 @@
                                 <segments>
                                     <segment title="Line"/>
                                     <segment title="Triangle"/>
-                                    <segment title="Circle"/>
+                                    <segment title="Ellipse"/>
                                     <segment title="Rectangle"/>
-                                    <segment title="Elipse"/>
-                                    <segment title="Squire"/>
+                                    <segment title="Trapeze"/>
+                                    <segment title="Polygon"/>
                                 </segments>
                                 <connections>
                                     <action selector="selectShapeButtonPressed:" destination="6T0-z9-bKR" eventType="valueChanged" id="nGB-yO-GMf"/>
@@ -150,7 +150,6 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="lzl-h6-Po3" firstAttribute="leading" secondItem="9n9-ek-qqK" secondAttribute="leading" id="On9-gV-NK7"/>
-                            <constraint firstItem="951-oe-nlq" firstAttribute="top" secondItem="lzl-h6-Po3" secondAttribute="bottom" constant="1" id="Wer-rv-rDy"/>
                             <constraint firstAttribute="trailing" secondItem="lzl-h6-Po3" secondAttribute="trailing" id="bIT-sY-sl7"/>
                         </constraints>
                     </view>
@@ -158,7 +157,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="idD-GQ-6cA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-343" y="364"/>
+            <point key="canvasLocation" x="-356" y="364"/>
         </scene>
         <!--Canvas View Controller-->
         <scene sceneID="ewS-Xn-wYi">

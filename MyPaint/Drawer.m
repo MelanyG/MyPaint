@@ -12,10 +12,10 @@ typedef enum shapeTypes
 {
     Line,
     triangle,
-    circle,
+    ellipse,
     rectangle,
-    elipse,
-    squire
+    trapeze,
+    polygon,
     
 }SelectedFigure;
 
@@ -58,14 +58,17 @@ typedef enum shapeTypes
         case triangle:
             [self drawTriangle:rect];
             break;
-        case circle:
-            [self drawCircle:rect];
+        case ellipse:
+            [self drawEllipse:rect];
             break;
         case rectangle:
             [self drawRectangle:rect];
             break;
-        case elipse:
-            [self drawElipse:rect];
+        case trapeze:
+            [self drawTrapeze:rect];
+            break;
+        case polygon:
+            [self drawPolygon:rect];
             break;
         default:
             break;
@@ -75,7 +78,7 @@ typedef enum shapeTypes
 - (void)drawLines:(CGRect)rect
 {
     CGContextRef context = UIGraphicsGetCurrentContext();
-    CGContextSetLineWidth(context, 25);
+    CGContextSetLineWidth(context, 5);
     CGContextSetStrokeColorWithColor(context, [UIColor blackColor].CGColor);
     CGPoint p = CGPointMake(rect.size.width, rect.size.height);
     
@@ -121,11 +124,11 @@ typedef enum shapeTypes
     CGContextStrokePath(context);      // Choose for a unfilled triangle
 }
 
--(void)drawCircle:(CGRect)rect
+-(void)drawEllipse:(CGRect)rect
 {
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGContextBeginPath(context);
-    CGContextSetRGBStrokeColor(context, 0.9, 0.9, 0.9, 1.0);
+    CGContextSetStrokeColorWithColor(context, [[UIColor blackColor] CGColor]);
     CGContextSetLineWidth(context, 5);
     rect.size.width-=5;
     rect.size.height-=5;
@@ -138,54 +141,121 @@ typedef enum shapeTypes
 
 -(void)drawRectangle:(CGRect)rect
 {
-    CGRect rectangle = CGRectMake(0, 0, rect.size.width, rect.size.height);
     CGContextRef context = UIGraphicsGetCurrentContext();
-    //CGContextSetRGBFillColor(context, 1.0, 0.0, 0.0, .0);
-    CGContextSetRGBStrokeColor(context, 0.5, 0.5, 0.5, 3.0);
-    CGContextFillRect(context, rectangle);
-    CGContextSetLineWidth(context, 5);
-    CGContextSetRGBStrokeColor(context, 0.9, 0.9, 0.9, 1.0);
+    CGContextSetLineWidth(context, 10);
     
-    //CGContextRef context = UIGraphicsGetCurrentContext();
-    //CGContextAddRect(context, CGRectMake(startPoint.x, startPoint.y, (endPoint.x - startPoint.x), (endPoint.y - startPoint.y)));
+    CGContextSetStrokeColorWithColor(context, [[UIColor blackColor] CGColor]);
+
+    
+    CGContextAddRect(context, CGRectInset
+                     (CGRectMake(0, 0, rect.size.width, rect.size.height),
+                      (self.endPoint.x - self.startPoint.x), (self.endPoint.y - self.startPoint.y)));
     CGContextStrokePath(context);
     
 }
 
--(void)drawElipse:(CGRect)rect
+-(void)drawTrapeze:(CGRect)rect
 {
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    CGPoint p = CGPointMake(rect.size.width, rect.size.height);
-    UIBezierPath *arc = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(p.x, p.y, rect.size.width, rect.size.height)];
-    CGContextSetLineWidth(context, 25);
-    CGContextSetStrokeColorWithColor(context, [UIColor blackColor].CGColor);
-    //;
-    [arc stroke];
+    rect.size.width-=5;
+    rect.size.height-=5;
+    rect.origin.x+=5;
+    rect.origin.y+=5;
+    
+    UIBezierPath * aPath = [UIBezierPath bezierPath];
+    
+    // Set the starting point of the shape.
+    [aPath moveToPoint:CGPointMake(rect.size.width/3, CGRectGetMinY(rect))];
+    
+    // Draw some lines.
+    [aPath addLineToPoint:CGPointMake((rect.size.width/3)*2, CGRectGetMinY(rect))];
+    
+    [aPath addLineToPoint:CGPointMake(rect.size.width, rect.size.height)];
+    [aPath addLineToPoint:CGPointMake(5, rect.size.height)];
+    [aPath closePath];
+    
+    //set the line width
+    aPath.lineWidth = 5;
+    
+    //set the stoke color
+    [[UIColor blackColor] setStroke];
+    
+    //draw the path
+    [aPath stroke];
+
 }
 
--(void)drawSquire:(CGRect)rect
+-(void)drawPolygon:(CGRect)rect
 {
-    CGContextRef context = UIGraphicsGetCurrentContext();
+    rect.size.width-=5;
+    rect.size.height-=5;
+    rect.origin.x+=5;
+    rect.origin.y+=5;
+    UIBezierPath * aPath = [UIBezierPath bezierPath];
     
-    int sides = 3;
-    double size = 100.0;
-    CGPoint center = CGPointMake(160.0, 100.0);
+    // Set the starting point of the shape.
+    [aPath moveToPoint:CGPointMake(rect.size.width/3, CGRectGetMinY(rect))];
     
-    double radius = size / 2.0;
-    double theta = 2.0 * M_PI / sides;
+    // Draw some lines.
+    [aPath addLineToPoint:CGPointMake((rect.size.width/3)*2, CGRectGetMinY(rect))];
     
-    CGContextMoveToPoint(context, center.x, center.y-radius);
-    for (NSUInteger k=1; k<sides; k++) {
-        float x = radius * sin(k * theta);
-        float y = radius * cos(k * theta);
-        CGContextAddLineToPoint(context, center.x+x, center.y-y);
-    }
-    CGContextClosePath(context);
+    [aPath addLineToPoint:CGPointMake(rect.size.width, rect.size.height/3)];
+    [aPath addLineToPoint:CGPointMake(rect.size.width, (rect.size.height/3)*2)];
+    [aPath addLineToPoint:CGPointMake((rect.size.width/3)*2, rect.size.height)];
+    [aPath addLineToPoint:CGPointMake((rect.size.width/3), rect.size.height)];
+    [aPath addLineToPoint:CGPointMake((5), (rect.size.height/3)*2)];
+    [aPath addLineToPoint:CGPointMake((5), (rect.size.height/3))];
     
     
-    //CGContextFillPath(context);           // Choose for a filled triangle
-    //CGContextSetLineWidth(context, 2); // Choose for a unfilled triangle
-    CGContextStrokePath(context);      // Choose for a unfilled triangle
-}
+    //changes start here !
+    
+    //the point look to be at 80% down
+    //[aPath addLineToPoint:CGPointMake(CGRectGetMaxX(rect), CGRectGetMaxY(rect) * .8)];
+    
+    
+    //1st arc
+    //The end point look to be at 1/4 at left, bottom
+    //CGPoint p = CGPointMake(CGRectGetMaxX(rect) / 4, CGRectGetMaxY(rect));
+    //CGPoint cp = CGPointMake( (CGRectGetMaxX(rect) / 4) + ((CGRectGetMaxX(rect) - (CGRectGetMaxX(rect) / 4)) / 2) , CGRectGetMaxY(rect) * .8);
+    
+    //[aPath addQuadCurveToPoint:p controlPoint:cp];
+    
+    
+    //2nd arc
+    //The end point look to be at 80% downt at left,
+    //CGPoint p2 = CGPointMake(CGRectGetMinX(rect), CGRectGetMaxY(rect) * .8);
+    //CGPoint cp2 = CGPointMake( (CGRectGetMaxX(rect) / 4) / 2 , CGRectGetMaxY(rect) * .8);
+    
+    //[aPath addQuadCurveToPoint:p2 controlPoint:cp2];
+    
+    
+    //close the path
+    [aPath closePath];
+    
+    //set the line width
+    aPath.lineWidth = 5;
+    
+    //set the stoke color
+    [[UIColor blackColor] setStroke];
+    
+    //draw the path
+    [aPath stroke];
+    
+    //UIBezierPath *poly = [[UIBezierPath alloc] init];
+    
+    ////set the line width
+    //poly.lineWidth = 5;
+    
+    //set the stoke color
+    //[[UIColor greenColor] setStroke];
+    
+   
+    //[poly strokeWithBlendMode:normal alpha:0.8];
+    //[poly moveToPoint:CGPointMake(0.0, 0.0)];
+    //[poly addLineToPoint:CGPointMake(200.0, 0.0)];
+    //[poly addLineToPoint:CGPointMake(200.0, 200.0)];
+    //[poly closePath];
+    //[poly stroke]; // draw stroke
+    
+  }
 
 @end
