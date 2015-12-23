@@ -24,6 +24,7 @@ typedef enum shapeTypes
 @property(nonatomic, assign)CGPoint startPoint;
 @property(nonatomic, assign)CGPoint endPoint;
 @property(nonatomic, assign)NSInteger shape;
+@property(nonatomic, strong)UIColor* color;
 
 @end
 
@@ -33,6 +34,7 @@ typedef enum shapeTypes
 
 - (instancetype)initWithFrame:(CGRect)frame
                         shape:(int)shape
+                        color:(UIColor*)color
                 startLocation:(CGPoint)startTap
                   endLocation:(CGPoint)stopTap
 {
@@ -41,6 +43,7 @@ typedef enum shapeTypes
     {
         self.backgroundColor = [UIColor grayColor];
         self.shape = shape;
+        self.color=[UIColor blackColor];
         self.startPoint = startTap;
         self.endPoint = stopTap;
     }
@@ -79,7 +82,7 @@ typedef enum shapeTypes
 {
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGContextSetLineWidth(context, 5);
-    CGContextSetStrokeColorWithColor(context, [UIColor blackColor].CGColor);
+    CGContextSetStrokeColorWithColor(context, [self.color CGColor]);
     CGPoint p = CGPointMake(rect.size.width, rect.size.height);
     
     if (self.crossLine)
@@ -115,7 +118,7 @@ typedef enum shapeTypes
         float y = radius * cos(k * theta);
         CGContextAddLineToPoint(context, center.x+x, center.y-y);
     }
-    CGContextSetStrokeColorWithColor(context, [UIColor blackColor].CGColor);
+    CGContextSetStrokeColorWithColor(context, [self.color CGColor]);
     CGContextClosePath(context);
     CGContextSetLineWidth(context, 5);
 
@@ -128,7 +131,7 @@ typedef enum shapeTypes
 {
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGContextBeginPath(context);
-    CGContextSetStrokeColorWithColor(context, [[UIColor blackColor] CGColor]);
+    CGContextSetStrokeColorWithColor(context, [self.color CGColor]);
     CGContextSetLineWidth(context, 5);
     rect.size.width-=5;
     rect.size.height-=5;
@@ -144,7 +147,7 @@ typedef enum shapeTypes
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGContextSetLineWidth(context, 10);
     
-    CGContextSetStrokeColorWithColor(context, [[UIColor blackColor] CGColor]);
+    CGContextSetStrokeColorWithColor(context, [self.color CGColor]);
 
     
     CGContextAddRect(context, CGRectInset

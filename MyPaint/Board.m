@@ -13,6 +13,7 @@
 @interface Board ()
 
 @property(nonatomic, strong) FigureViewController* Figure;
+@property(nonatomic, strong) ColorPanelController* Colors;
 @property(nonatomic, strong) CanvasViewController* Canvas;
 
 @end
@@ -37,9 +38,13 @@
     {
         self.Figure = (FigureViewController *)[segue destinationViewController];
     }
+    else if ([segue.identifier isEqualToString:@"ColorSegue"])
+    {
+        self.Colors = (ColorPanelController *)[segue destinationViewController];
+    }
     
     self.Figure.delegate=self.Canvas;
-    
+    self.Colors.delegate=self.Canvas;
 }
 
 

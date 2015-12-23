@@ -13,8 +13,7 @@
 //#import "ColorPanelController.h"
 
 
-@interface CanvasViewController : UIViewController <FigureDelegate>
-
+@interface CanvasViewController : UIViewController <FigureDelegate,ColorDelegate>
 
 
 

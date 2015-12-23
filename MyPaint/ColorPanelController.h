@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Board.h"
+
+@protocol ColorDelegate;
 
 @interface ColorPanelController : UIViewController
+
+
+@property (nonatomic, weak) id delegate;
+@property(nonatomic, strong) UIColor* color;
 
 @end

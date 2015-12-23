@@ -14,9 +14,10 @@
 @interface CanvasViewController ()
 
 @property(nonatomic, strong) Drawer* rect;
-@property(nonatomic, weak) UIView* draggingView;
-@property(nonatomic, assign)CGPoint touchesBegan;
+//@property(nonatomic, weak) UIView* draggingView;
+//@property(nonatomic, assign)CGPoint touchesBegan;
 @property(nonatomic, assign) NSInteger tag; //for protocol
+@property(nonatomic, strong) UIColor* button; //for protocol
 @property(nonatomic, assign) CGPoint start;
 @property(nonatomic, assign) CGPoint stop;
 
@@ -27,11 +28,16 @@
 @implementation CanvasViewController
 
 
-#pragma mark-Figure selected Delegate
+#pragma mark-protocols
 
 -(void) didSelectFigure:(NSInteger) tag
 {
     self.tag=tag;
+}
+
+-(void) didSelectColor:(UIColor*) colorSelected
+{
+    self.button=colorSelected;
 }
 
 
@@ -49,6 +55,7 @@
     
     self.rect = [[Drawer alloc] initWithFrame:frame
                                         shape:self.tag
+                                        color:self.button
                                 startLocation:self.start
                                   endLocation:self.start];
     

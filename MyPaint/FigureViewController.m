@@ -9,16 +9,7 @@
 #import "FigureViewController.h"
 
 @interface FigureViewController ()
-typedef enum
-{
-    Line,
-    triangle,
-    circle,
-    rectangle,
-    elipse,
-    square
-    
-} SelectedFigure;
+
 @end
 
 
