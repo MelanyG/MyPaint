@@ -16,6 +16,7 @@
 - (instancetype)initWithFrame:(CGRect)frame
                         shape:(int)shape
                         color:(UIColor*)color
+                        width:(CGFloat) width
                 startLocation:(CGPoint)startTap
                   endLocation:(CGPoint)stopTap;
 

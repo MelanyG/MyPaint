@@ -10,9 +10,12 @@
 
 @interface ColorPanelController()
 
-@property(nonatomic, assign) CGFloat red;
-@property(nonatomic, assign) CGFloat green;
-@property(nonatomic, assign) CGFloat blue;
+@property (nonatomic, assign) CGFloat red;
+@property (nonatomic, assign) CGFloat green;
+@property (nonatomic, assign) CGFloat blue;
+@property (nonatomic, assign) CGFloat width;
+
+@property (nonatomic, assign) NSInteger selectedButton;
 
 @end
 
@@ -24,9 +27,13 @@
 {
     UIButton * PressedButton = (UIButton*)sender;
     
+    [self deselectButton:self.selectedButton];
+    [self selectButton:PressedButton.tag];
+    self.selectedButton = PressedButton.tag;
+    
     switch(PressedButton.tag)
     {
-        case 0:
+        case 10:
             self.red = 0.0/255.0;
             self.green = 0.0/255.0;
             self.blue = 0.0/255.0;
@@ -78,8 +85,27 @@
             break;
     }
     self.color= [UIColor colorWithRed:(self.red) green:(self.green) blue:(self.blue) alpha:1] ;
+    //self.color = UIColorMake(31.0, 164.0, 23.0);
     
     [self.delegate didSelectColor:self.color];
+   
+}
+- (IBAction)WidthSelected:(id)sender
+{
+    self.width=10;
+    [self.delegate didSelectWidth:self.width];
+}
+
+- (void)selectButton:(NSInteger)index
+{
+    UIView *button = [self.view viewWithTag:index];
+    button.transform = CGAffineTransformMakeScale(1.2, 1.2);
+}
+
+- (void)deselectButton:(NSInteger)index
+{
+    UIView *button = [self.view viewWithTag:index];
+    button.transform = CGAffineTransformIdentity;
 }
 
 @end

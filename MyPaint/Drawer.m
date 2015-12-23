@@ -21,10 +21,11 @@ typedef enum shapeTypes
 
 @interface Drawer()
 
-@property(nonatomic, assign)CGPoint startPoint;
-@property(nonatomic, assign)CGPoint endPoint;
-@property(nonatomic, assign)NSInteger shape;
-@property(nonatomic, strong)UIColor* color;
+@property(nonatomic, assign) CGPoint startPoint;
+@property(nonatomic, assign) CGPoint endPoint;
+@property(nonatomic, assign) NSInteger shape;
+@property(nonatomic, strong) UIColor* color;
+@property(nonatomic, assign) CGFloat width;
 
 @end
 
@@ -35,6 +36,7 @@ typedef enum shapeTypes
 - (instancetype)initWithFrame:(CGRect)frame
                         shape:(int)shape
                         color:(UIColor*)color
+                        width:(CGFloat) width
                 startLocation:(CGPoint)startTap
                   endLocation:(CGPoint)stopTap
 {
@@ -43,7 +45,8 @@ typedef enum shapeTypes
     {
         self.backgroundColor = [UIColor grayColor];
         self.shape = shape;
-        self.color=[UIColor blackColor];
+        self.color=color;
+        self.width = width;
         self.startPoint = startTap;
         self.endPoint = stopTap;
     }
@@ -81,8 +84,8 @@ typedef enum shapeTypes
 - (void)drawLines:(CGRect)rect
 {
     CGContextRef context = UIGraphicsGetCurrentContext();
-    CGContextSetLineWidth(context, 5);
-    CGContextSetStrokeColorWithColor(context, [self.color CGColor]);
+    CGContextSetLineWidth(context, self.width);
+    CGContextSetStrokeColorWithColor(context, [self.color CGColor] );
     CGPoint p = CGPointMake(rect.size.width, rect.size.height);
     
     if (self.crossLine)
@@ -120,7 +123,7 @@ typedef enum shapeTypes
     }
     CGContextSetStrokeColorWithColor(context, [self.color CGColor]);
     CGContextClosePath(context);
-    CGContextSetLineWidth(context, 5);
+    CGContextSetLineWidth(context, self.width);
 
     //CGContextFillPath(context);           // Choose for a filled triangle
     //CGContextSetLineWidth(context, 2); // Choose for a unfilled triangle
@@ -132,7 +135,7 @@ typedef enum shapeTypes
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGContextBeginPath(context);
     CGContextSetStrokeColorWithColor(context, [self.color CGColor]);
-    CGContextSetLineWidth(context, 5);
+    CGContextSetLineWidth(context, self.width);
     rect.size.width-=5;
     rect.size.height-=5;
     rect.origin.x+=5;
@@ -145,7 +148,7 @@ typedef enum shapeTypes
 -(void)drawRectangle:(CGRect)rect
 {
     CGContextRef context = UIGraphicsGetCurrentContext();
-    CGContextSetLineWidth(context, 10);
+    CGContextSetLineWidth(context, self.width);
     
     CGContextSetStrokeColorWithColor(context, [self.color CGColor]);
 
@@ -177,10 +180,10 @@ typedef enum shapeTypes
     [aPath closePath];
     
     //set the line width
-    aPath.lineWidth = 5;
+    aPath.lineWidth = self.width;
     
     //set the stoke color
-    [[UIColor blackColor] setStroke];
+    [self.color setStroke];
     
     //draw the path
     [aPath stroke];
@@ -235,10 +238,10 @@ typedef enum shapeTypes
     [aPath closePath];
     
     //set the line width
-    aPath.lineWidth = 5;
+    aPath.lineWidth = self.width;
     
     //set the stoke color
-    [[UIColor blackColor] setStroke];
+    [self.color setStroke];
     
     //draw the path
     [aPath stroke];

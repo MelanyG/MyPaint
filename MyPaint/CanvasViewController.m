@@ -20,13 +20,37 @@
 @property(nonatomic, strong) UIColor* button; //for protocol
 @property(nonatomic, assign) CGPoint start;
 @property(nonatomic, assign) CGPoint stop;
+@property(nonatomic, strong) NSMutableArray* myArray;
+@property(nonatomic, assign) CGFloat width; //for protocol
+@property(nonatomic, weak) UIView* currentView;
+@property(nonatomic, assign) CGFloat tmpScale;
 
+//@property(nonatomic, strong) UIGestureRecognizer* gestureTab;
 @end
 
 
 
 @implementation CanvasViewController
 
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+
+    self.myArray = [[NSMutableArray alloc] init];
+    
+    UITapGestureRecognizer*  gestureTab = [[UITapGestureRecognizer alloc]initWithTarget:self
+action:@selector(handleDoubleTap:) ];
+    [self.view addGestureRecognizer: gestureTab];
+    gestureTab.numberOfTapsRequired=2;
+//gestureTab.numberOfTouchesRequired=2;
+    
+       //[gestureTab numberOfTouches];
+    //gestureTab.numberOfTouchesRequired = 1;
+    UIPinchGestureRecognizer* pinchGesture=[[UIPinchGestureRecognizer alloc]initWithTarget:self
+action:@selector(handlePinch:)];
+    [self.view addGestureRecognizer:pinchGesture];
+   
+}
 
 #pragma mark-protocols
 
@@ -40,7 +64,40 @@
     self.button=colorSelected;
 }
 
+-(void) didSelectWidth:(CGFloat)shapeWidth
+{
+    self.width = shapeWidth;
+}
 
+#pragma mark-Gestures
+
+-(void)handleDoubleTap:(UITapGestureRecognizer*) gestureTab
+{
+    NSLog(@"Tab,%@", NSStringFromCGPoint([gestureTab locationInView:self.view]));
+    
+}
+
+-(void)handlePinch:(UIPinchGestureRecognizer*) pinchGesture
+{
+    
+    NSLog(@"pinchGesture" );
+    
+    if(pinchGesture.state == UIGestureRecognizerStateBegan)
+    {
+        self.tmpScale = 1.f;
+    }
+    
+    CGFloat newScale = 1.f+pinchGesture.scale-self.tmpScale;
+    
+    CGAffineTransform currentTransform = self.currentView.transform;
+    CGAffineTransform newTransform = CGAffineTransformScale(currentTransform, newScale, newScale);
+    
+    self.currentView.transform = newTransform;
+    self.tmpScale = pinchGesture.scale;
+}
+
+
+                 
 #pragma mark-Touches
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
@@ -56,11 +113,15 @@
     self.rect = [[Drawer alloc] initWithFrame:frame
                                         shape:self.tag
                                         color:self.button
+                                        width:self.width
                                 startLocation:self.start
                                   endLocation:self.start];
     
+    self.rect.translatesAutoresizingMaskIntoConstraints = NO;
 //    self.rect.backgroundColor = [UIColor clearColor];
     [self.view addSubview:self.rect];
+    [self.myArray addObject:self.rect];
+    
     [UIView animateWithDuration:0.3
                      animations:^{
                          self.rect.transform=CGAffineTransformMakeScale(1.2f, 1.2f);
@@ -88,14 +149,14 @@
     self.rect.frame = frame;
     
     [self.rect setNeedsDisplay];
-    NSLog(@"touchesMoved,%@", NSStringFromCGRect(frame));
+    //NSLog(@"touchesMoved,%@", NSStringFromCGRect(frame));
     
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
     [super touchesEnded:touches withEvent:event];
-    NSLog(@"touchesEnded");
+    //NSLog(@"touchesEnded");
     
     [UIView animateWithDuration:0.3
                      animations:^{
@@ -103,9 +164,13 @@
                          self.rect.alpha=1.f;
                      }];
     
-    
     self.rect = nil;
+   // NSLog(@"q-ty of elements in array: %lu", (unsigned long)[self.myArray count]);
 }
+
+
+
+
 
 
 @end

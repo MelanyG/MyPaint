@@ -35,6 +35,7 @@
 
 
 -(void) didSelectColor:(UIColor*)button;
+-(void) didSelectWidth:(CGFloat)shapeWidth;
 
 @end
 
