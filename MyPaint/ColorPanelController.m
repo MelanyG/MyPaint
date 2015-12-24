@@ -14,8 +14,10 @@
 @property (nonatomic, assign) CGFloat green;
 @property (nonatomic, assign) CGFloat blue;
 @property (nonatomic, assign) CGFloat width;
+@property (nonatomic, assign) NSInteger mode;
+@property (strong, nonatomic) IBOutlet UIButton *settings;
 
-@property (nonatomic, assign) NSInteger selectedButton;
+@property (nonatomic, assign) NSInteger selectedButtonColor;
 
 @end
 
@@ -27,9 +29,9 @@
 {
     UIButton * PressedButton = (UIButton*)sender;
     
-    [self deselectButton:self.selectedButton];
+    [self deselectButton:self.selectedButtonColor];
     [self selectButton:PressedButton.tag];
-    self.selectedButton = PressedButton.tag;
+    self.selectedButtonColor = PressedButton.tag;
     
     switch(PressedButton.tag)
     {
@@ -85,7 +87,6 @@
             break;
     }
     self.color= [UIColor colorWithRed:(self.red) green:(self.green) blue:(self.blue) alpha:1] ;
-    //self.color = UIColorMake(31.0, 164.0, 23.0);
     
     [self.delegate didSelectColor:self.color];
    
@@ -95,6 +96,22 @@
     self.width=10;
     [self.delegate didSelectWidth:self.width];
 }
+
+- (IBAction)CorrectMode:(id)sender
+{
+    if (self.mode==0)
+    {
+        self.mode++;
+    }
+    else if(self.mode==1)
+    {
+        self.mode=0;
+    }
+    [self.delegate didSelectMode:self.mode];
+}
+
+
+#pragma mark -forBeauty
 
 - (void)selectButton:(NSInteger)index
 {

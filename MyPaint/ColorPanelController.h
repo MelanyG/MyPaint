@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Board.h"
+#import "SettingsForColor.h"
 
 @protocol ColorDelegate;
 

@@ -24,8 +24,13 @@
 @property(nonatomic, assign) CGFloat width; //for protocol
 @property(nonatomic, weak) UIView* currentView;
 @property(nonatomic, assign) CGFloat tmpScale;
+@property(nonatomic, assign) CGFloat tmpRotate;
+@property(nonatomic, assign) BOOL mode;
+@property(nonatomic, strong) UITapGestureRecognizer*  gestureTab;
+@property(nonatomic, strong) UIPinchGestureRecognizer* pinchGesture;
+@property(nonatomic, strong) UIRotationGestureRecognizer* rotationGesture;
+@property(nonatomic, strong) UIPanGestureRecognizer* panGesture;
 
-//@property(nonatomic, strong) UIGestureRecognizer* gestureTab;
 @end
 
 
@@ -38,18 +43,33 @@
 
     self.myArray = [[NSMutableArray alloc] init];
     
-    UITapGestureRecognizer*  gestureTab = [[UITapGestureRecognizer alloc]initWithTarget:self
-action:@selector(handleDoubleTap:) ];
-    [self.view addGestureRecognizer: gestureTab];
-    gestureTab.numberOfTapsRequired=2;
-//gestureTab.numberOfTouchesRequired=2;
+    self.gestureTab = [[UITapGestureRecognizer alloc]initWithTarget:self
+                                                                                 action:@selector(handleDoubleTap:) ];
+    [self.view addGestureRecognizer: self.gestureTab];
+    self.gestureTab.numberOfTapsRequired=2;
     
-       //[gestureTab numberOfTouches];
-    //gestureTab.numberOfTouchesRequired = 1;
-    UIPinchGestureRecognizer* pinchGesture=[[UIPinchGestureRecognizer alloc]initWithTarget:self
-action:@selector(handlePinch:)];
-    [self.view addGestureRecognizer:pinchGesture];
-   
+    
+  self.pinchGesture=[[UIPinchGestureRecognizer alloc]initWithTarget:self
+                                                                                    action:@selector(handlePinch:)];
+    [self.view addGestureRecognizer:self.pinchGesture];
+    
+self.rotationGesture=[[UIRotationGestureRecognizer alloc]initWithTarget:self
+                                                                                             action:@selector(handleRotation:)];
+    [self.view addGestureRecognizer:self.rotationGesture];
+    
+   self.panGesture=[[UIPanGestureRecognizer alloc]initWithTarget:self
+                                                                              action:@selector(handlePan:)];
+    [self.view addGestureRecognizer:self.panGesture];
+    self.mode=0;
+    
+    self.gestureTab.Enabled = NO;
+    self.pinchGesture.enabled=NO;
+    self.panGesture.enabled=NO;
+    self.rotationGesture.enabled=NO;
+
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//        self.navigationController.interactivePopGestureRecognizer.enabled = true;
+//    });
 }
 
 #pragma mark-protocols
@@ -69,24 +89,79 @@ action:@selector(handlePinch:)];
     self.width = shapeWidth;
 }
 
+-(void) didSelectMode: (NSInteger) mode
+{
+    self.mode = mode;
+    if(mode == 0)
+    {
+        self.gestureTab.Enabled = NO;
+        self.pinchGesture.enabled = NO;
+        self.panGesture.enabled = NO;
+        self.rotationGesture.enabled = NO;
+
+    }
+    else if(mode == 1)
+    {
+        self.gestureTab.enabled = YES;
+        self.pinchGesture.enabled = YES;
+        self.panGesture.enabled = YES;
+        self.rotationGesture.enabled = YES;
+
+
+    }
+}
+
+
+
+#pragma mark - UIGestureRecognizerDelegate
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
+{
+    return YES;
+}
+
+
+
+
+
 #pragma mark-Gestures
 
 -(void)handleDoubleTap:(UITapGestureRecognizer*) gestureTab
 {
+    
     NSLog(@"Tab,%@", NSStringFromCGPoint([gestureTab locationInView:self.view]));
+    CGPoint location = [gestureTab locationInView:self.view];
+    self.currentView = [self.view hitTest:location withEvent:nil];
+//    [UIView animateWithDuration:0.3
+//                     animations:^{
+//                         self.currentView.transform=CGAffineTransformMakeScale(1.1f, 1.1f);
+//                         self.currentView.alpha=0.5;
+//                     }
+//     completion:nil
+//     ];
+//    [UIView animateWithDuration:0.3
+//                     animations:^{
+//                         self.rect.transform=CGAffineTransformIdentity;
+//                         self.rect.alpha=1.f;
+//                     }];
+    
+    gestureTab.delegate=self;
     
 }
 
 -(void)handlePinch:(UIPinchGestureRecognizer*) pinchGesture
 {
+NSLog(@"pinchGesture" );
     
-    NSLog(@"pinchGesture" );
     
     if(pinchGesture.state == UIGestureRecognizerStateBegan)
     {
+//        CGPoint location = [pinchGesture locationInView:pinchGesture.view];
+//        self.currentView = [pinchGesture.view hitTest:location withEvent:nil];
         self.tmpScale = 1.f;
     }
     
+       
     CGFloat newScale = 1.f+pinchGesture.scale-self.tmpScale;
     
     CGAffineTransform currentTransform = self.currentView.transform;
@@ -94,45 +169,107 @@ action:@selector(handlePinch:)];
     
     self.currentView.transform = newTransform;
     self.tmpScale = pinchGesture.scale;
+    pinchGesture.delegate=self;
+  
 }
 
+-(void)handleRotation:(UIRotationGestureRecognizer*) rotationGesture
+{
+    NSLog(@"rotationGesture" );
 
-                 
+   
+       if(rotationGesture.state == UIGestureRecognizerStateBegan)
+    {
+//        CGPoint location = [rotationGesture locationInView:rotationGesture.view];
+//        self.currentView = [rotationGesture.view hitTest:location withEvent:nil];
+        self.tmpScale = 0;
+        
+        
+
+    }
+    CGFloat newRotation=self.tmpRotate-rotationGesture.rotation;
+    CGAffineTransform currentTransform = self.currentView.transform;
+    CGAffineTransform newTransform = CGAffineTransformRotate(currentTransform, newRotation);
+    self.currentView.transform=newTransform;
+    self.tmpRotate=rotationGesture.rotation;
+    
+        rotationGesture.delegate=self;
+ 
+}
+
+-(void)handlePan: (UIPanGestureRecognizer*) panGesture
+{
+     NSLog(@"panGesture" );
+    
+    CGPoint location = [panGesture locationInView:self.view];
+    self.currentView = [self.view hitTest:location withEvent:nil];
+        self.currentView.center=[panGesture locationInView:self.view];
+//        CGPoint translation = [panGesture translationInView:self.view];
+//        panGesture.view.center = CGPointMake(panGesture.view.center.x + translation.x,
+//                                             panGesture.view.center.y + translation.y);
+//        [panGesture setTranslation:CGPointMake(0, 0) inView:self.currentView];
+//        if (panGesture.state == UIGestureRecognizerStateEnded)
+//        {
+//            
+//            CGPoint velocity = [panGesture velocityInView:self.view];
+//            CGFloat magnitude = sqrtf((velocity.x * velocity.x) + (velocity.y * velocity.y));
+//            CGFloat slideMult = magnitude / 200;
+//            NSLog(@"magnitude: %f, slideMult: %f", magnitude, slideMult);
+//            
+//            float slideFactor = 0.1 * slideMult; // Increase for more of a slide
+//           CGPoint finalPoint = CGPointMake(panGesture.view.center.x + (velocity.x * slideFactor),
+//                                            panGesture.view.center.y + (velocity.y * slideFactor));
+//           finalPoint.x = MIN(MAX(finalPoint.x, 0), self.currentView.bounds.size.width);
+//            finalPoint.y = MIN(MAX(finalPoint.y, 0), self.currentView.bounds.size.height);
+//    
+//    
+//                [UIView animateWithDuration:2*2 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+//                   panGesture.view.center = finalPoint;
+//               }
+//                                completion:nil];
+//        }
+panGesture.delegate=self;
+}
+
 #pragma mark-Touches
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    
-    UITouch* touch = [[event allTouches] anyObject];
-    self.start = [touch locationInView:self.view];
-    
-    CGRect frame = CGRectMake(self.start.x,
-                              self.start.y,
-                              0, 0);
-    
-    self.rect = [[Drawer alloc] initWithFrame:frame
-                                        shape:self.tag
-                                        color:self.button
-                                        width:self.width
-                                startLocation:self.start
-                                  endLocation:self.start];
-    
-    self.rect.translatesAutoresizingMaskIntoConstraints = NO;
-//    self.rect.backgroundColor = [UIColor clearColor];
-    [self.view addSubview:self.rect];
-    [self.myArray addObject:self.rect];
-    
-    [UIView animateWithDuration:0.3
-                     animations:^{
-                         self.rect.transform=CGAffineTransformMakeScale(1.2f, 1.2f);
-                         self.rect.alpha=0.3;
-                     }];
-    NSLog(@"touchesBegan,%@", NSStringFromCGRect(frame));
+   if(self.mode==FALSE)
+   {
+        UITouch* touch = [[event allTouches] anyObject];
+        self.start = [touch locationInView:self.view];
+        
+        CGRect frame = CGRectMake(self.start.x,
+                                  self.start.y,
+                                  0, 0);
+        
+        self.rect = [[Drawer alloc] initWithFrame:frame
+                                            shape:self.tag
+                                            color:self.button
+                                            width:self.width
+                                    startLocation:self.start
+                                      endLocation:self.start];
+        
+        self.rect.translatesAutoresizingMaskIntoConstraints = NO;
+        //    self.rect.backgroundColor = [UIColor clearColor];
+        [self.view addSubview:self.rect];
+        [self.myArray addObject:self.rect];
+        
+        [UIView animateWithDuration:0.3
+                         animations:^{
+                             self.rect.transform=CGAffineTransformMakeScale(1.2f, 1.2f);
+                             self.rect.alpha=0.3;
+                         }];
+        NSLog(@"touchesBegan,%@", NSStringFromCGRect(frame));
+   }
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    
+    if(self.mode==FALSE)
+    {
+
     
     UITouch* touch = [[event allTouches] anyObject];
     self.stop = [touch locationInView:self.view];
@@ -149,26 +286,37 @@ action:@selector(handlePinch:)];
     self.rect.frame = frame;
     
     [self.rect setNeedsDisplay];
-    //NSLog(@"touchesMoved,%@", NSStringFromCGRect(frame));
-    
+    NSLog(@"touchesMoved,%@", NSStringFromCGRect(frame));
+    }
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    [super touchesEnded:touches withEvent:event];
-    //NSLog(@"touchesEnded");
-    
-    [UIView animateWithDuration:0.3
-                     animations:^{
-                         self.rect.transform=CGAffineTransformIdentity;
-                         self.rect.alpha=1.f;
-                     }];
-    
-    self.rect = nil;
-   // NSLog(@"q-ty of elements in array: %lu", (unsigned long)[self.myArray count]);
+    if(self.mode==FALSE)
+    {
+
+        [super touchesEnded:touches withEvent:event];
+        NSLog(@"touchesEnded");
+        
+        [UIView animateWithDuration:0.3
+                         animations:^{
+                             self.rect.transform=CGAffineTransformIdentity;
+                             self.rect.alpha=1.f;
+                         }];
+        
+        self.rect = nil;
+        NSLog(@"q-ty of elements in array: %lu", (unsigned long)[self.myArray count]);
+    }
 }
 
-
+- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    if(self.mode==FALSE)
+    {
+self.rect = nil;
+     NSLog(@"touchesCancelled");
+    }
+}
 
 
 

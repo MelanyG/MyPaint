@@ -25,7 +25,7 @@
 @required
 
 -(void) didSelectFigure:(NSInteger)tag;
-//-(void) didSelectColor:(NSInteger)button;
+
 
 @end
 
@@ -36,6 +36,7 @@
 
 -(void) didSelectColor:(UIColor*)button;
 -(void) didSelectWidth:(CGFloat)shapeWidth;
+-(void) didSelectMode: (NSInteger) mode;
 
 @end
 
