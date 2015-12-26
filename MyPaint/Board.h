@@ -37,6 +37,8 @@
 -(void) didSelectColor:(UIColor*)button;
 -(void) didSelectWidth:(CGFloat)shapeWidth;
 -(void) didSelectMode: (NSInteger) mode;
+-(void) didSelectSettings: (id) sender;
+-(void) didSelectDelete;
 
 @end
 

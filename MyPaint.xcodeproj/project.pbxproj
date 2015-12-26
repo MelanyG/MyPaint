@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		36203C971C2C5D3800E21A3C /* SettingsForColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 36203C961C2C5D3800E21A3C /* SettingsForColor.m */; };
+		365D0A9A1C2D81B200AFA2ED /* 1211778056.png in Resources */ = {isa = PBXBuildFile; fileRef = 365D0A991C2D81B200AFA2ED /* 1211778056.png */; };
 		366C72901C22D0DC006076A5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 366C728F1C22D0DC006076A5 /* main.m */; };
 		366C72931C22D0DC006076A5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 366C72921C22D0DC006076A5 /* AppDelegate.m */; };
 		366C72961C22D0DC006076A5 /* Board.m in Sources */ = {isa = PBXBuildFile; fileRef = 366C72951C22D0DC006076A5 /* Board.m */; };
@@ -55,8 +56,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		36203C951C2C5D3800E21A3C /* SettingsForColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsForColor.h; sourceTree = "<group>"; };
-		36203C961C2C5D3800E21A3C /* SettingsForColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsForColor.m; sourceTree = "<group>"; };
+		36203C951C2C5D3800E21A3C /* SettingsForColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingsForColor.h; path = ../SettingsForColor.h; sourceTree = "<group>"; };
+		36203C961C2C5D3800E21A3C /* SettingsForColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingsForColor.m; path = ../SettingsForColor.m; sourceTree = "<group>"; };
+		365D0A991C2D81B200AFA2ED /* 1211778056.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1211778056.png; sourceTree = "<group>"; };
 		366C728A1C22D0DC006076A5 /* MyPaint.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyPaint.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		366C728E1C22D0DC006076A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		366C728F1C22D0DC006076A5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -125,8 +127,6 @@
 		366C72811C22D0DC006076A5 = {
 			isa = PBXGroup;
 			children = (
-				36203C951C2C5D3800E21A3C /* SettingsForColor.h */,
-				36203C961C2C5D3800E21A3C /* SettingsForColor.m */,
 				366C728C1C22D0DC006076A5 /* MyPaint */,
 				366C72A61C22D0DD006076A5 /* MyPaintTests */,
 				366C728B1C22D0DC006076A5 /* Products */,
@@ -188,6 +188,8 @@
 		369B19411C24374100027889 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				36203C961C2C5D3800E21A3C /* SettingsForColor.m */,
+				36203C951C2C5D3800E21A3C /* SettingsForColor.h */,
 				369B19421C2437FF00027889 /* CanvasViewController.h */,
 				369B19431C2437FF00027889 /* CanvasViewController.m */,
 				366C72941C22D0DC006076A5 /* Board.h */,
@@ -205,6 +207,7 @@
 		36DCD6131C29814600BF4709 /* Graphics */ = {
 			isa = PBXGroup;
 			children = (
+				365D0A991C2D81B200AFA2ED /* 1211778056.png */,
 				36DCD6141C29814600BF4709 /* b.png */,
 				36DCD6151C29814600BF4709 /* Black.png */,
 				36DCD6161C29814600BF4709 /* Blue.png */,
@@ -316,6 +319,7 @@
 				366C72991C22D0DD006076A5 /* Main.storyboard in Resources */,
 				36DCD62B1C29814600BF4709 /* Black.png in Resources */,
 				36DCD63E1C29814600BF4709 /* width.png in Resources */,
+				365D0A9A1C2D81B200AFA2ED /* 1211778056.png in Resources */,
 				36DCD6311C29814600BF4709 /* Eraser.png in Resources */,
 				36DCD63F1C29814600BF4709 /* Yellow.png in Resources */,
 				36DCD6321C29814600BF4709 /* g.png in Resources */,

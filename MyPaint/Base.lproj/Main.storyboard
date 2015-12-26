@@ -138,7 +138,7 @@
                             </button>
                             <button opaque="NO" tag="6" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Nu-yr-xgZ">
                                 <rect key="frame" x="124" y="0.0" width="20" height="60"/>
-                                <state key="normal" title="Button" image="Blue.png">
+                                <state key="normal" title="Button" image="LightBlue.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -199,8 +199,8 @@
                                     <action selector="ColorPressed:" destination="7ju-gv-Rtb" eventType="touchUpInside" id="cpw-pM-AJY"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="100" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oRI-SO-d6J">
-                                <rect key="frame" x="347" y="12" width="112" height="32"/>
+                            <button opaque="NO" tag="100" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oRI-SO-d6J">
+                                <rect key="frame" x="374" y="12" width="112" height="32"/>
                                 <state key="normal" title="Button" image="width.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -208,8 +208,17 @@
                                     <action selector="WidthSelected:" destination="7ju-gv-Rtb" eventType="touchUpInside" id="71h-RP-6wn"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f1z-Lf-pGT">
+                                <rect key="frame" x="509" y="8" width="50" height="40"/>
+                                <state key="normal" backgroundImage="Setting-1.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="PgM-My-rsD" kind="presentation" id="zcc-mr-xbi"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" tag="101" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ARe-gf-7ze">
-                                <rect key="frame" x="212" y="16" width="66" height="30"/>
+                                <rect key="frame" x="226" y="15" width="66" height="30"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Correct">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -219,19 +228,13 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="102" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0jw-QT-NBf">
-                                <rect key="frame" x="279" y="14" width="66" height="30"/>
+                                <rect key="frame" x="294" y="14" width="66" height="30"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Cancel">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f1z-Lf-pGT">
-                                <rect key="frame" x="509" y="8" width="50" height="40"/>
-                                <state key="normal" backgroundImage="Setting-1.png">
+                                <state key="normal" title="Delete">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="PgM-My-rsD" kind="presentation" id="zcc-mr-xbi"/>
+                                    <action selector="pressedDelete:" destination="7ju-gv-Rtb" eventType="touchUpInside" id="pMa-co-DzN"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -272,6 +275,9 @@
                                     <segment title="Trapeze"/>
                                     <segment title="Polygon"/>
                                 </segments>
+                                <variation key="heightClass=regular-widthClass=regular" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="0.0" y="12" width="768" height="60"/>
+                                </variation>
                                 <connections>
                                     <action selector="selectShapeButtonPressed:" destination="6T0-z9-bKR" eventType="valueChanged" id="nGB-yO-GMf"/>
                                 </connections>
@@ -316,83 +322,175 @@
                         <viewControllerLayoutGuide type="top" id="4Un-rd-tC6"/>
                         <viewControllerLayoutGuide type="bottom" id="8e5-rR-xd4"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="hzI-8Z-x9g">
+                    <view key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" id="hzI-8Z-x9g">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qkn-Me-xbi">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                 <items>
-                                    <barButtonItem title="Close" width="581" id="7Ju-nc-lWb">
+                                    <barButtonItem title="                                                                                                                         Close" width="581" id="7Ju-nc-lWb">
                                         <connections>
                                             <action selector="closeSettings:" destination="PgM-My-rsD" id="6e5-aE-6SZ"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
+                                <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="0.0" width="800" height="44"/>
+                                </variation>
                             </toolbar>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="uIz-Sj-cHn">
-                                <rect key="frame" x="175" y="61" width="118" height="31"/>
-                                <connections>
-                                    <action selector="valueChanged:" destination="PgM-My-rsD" eventType="valueChanged" id="LEQ-Ob-OxO"/>
-                                </connections>
-                            </slider>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="80" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="ThQ-uh-efW">
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.80000000000000004" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="ThQ-uh-efW">
                                 <rect key="frame" x="175" y="238" width="118" height="31"/>
+                                <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="189" y="323" width="179" height="31"/>
+                                </variation>
                                 <connections>
-                                    <action selector="valueChanged:" destination="PgM-My-rsD" eventType="valueChanged" id="ZfA-my-XQZ"/>
+                                    <action selector="sliderChanged:" destination="PgM-My-rsD" eventType="valueChanged" id="bi6-WJ-QEN"/>
                                 </connections>
                             </slider>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Hm-VR-lZZ">
-                                <rect key="frame" x="468" y="65" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EBa-of-suj">
-                                <rect key="frame" x="468" y="242" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m91-8T-2zz">
-                                <rect key="frame" x="362" y="271" width="189" height="128"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Brush" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="26t-QP-FWu">
-                                <rect key="frame" x="28" y="65" width="77" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="50" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Hm-VR-lZZ">
+                                <rect key="frame" x="445" y="65" width="65" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="449" y="106" width="65" height="21"/>
+                                </variation>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m91-8T-2zz">
+                                <rect key="frame" x="405" y="271" width="195" height="145"/>
+                                <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="409" y="361" width="375" height="202"/>
+                                </variation>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Opacity" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ozf-a9-Q6z">
                                 <rect key="frame" x="28" y="242" width="76" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="42" y="327" width="76" height="21"/>
+                                </variation>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tOS-5g-YuK">
-                                <rect key="frame" x="362" y="94" width="189" height="128"/>
+                                <rect key="frame" x="405" y="94" width="195" height="145"/>
+                                <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="409" y="135" width="375" height="184"/>
+                                </variation>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0.8" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EBa-of-suj">
+                                <rect key="frame" x="445" y="242" width="65" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="459" y="327" width="65" height="21"/>
+                                </variation>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="RGB" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1vd-zL-Qkm">
+                                <rect key="frame" x="36" y="459" width="77" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="42" y="620" width="77" height="21"/>
+                                </variation>
+                            </label>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="200" minValue="0.0" maxValue="255" translatesAutoresizingMaskIntoConstraints="NO" id="7Rh-Ea-cex">
+                                <rect key="frame" x="175" y="475" width="118" height="31"/>
+                                <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="181" y="636" width="187" height="31"/>
+                                </variation>
+                                <connections>
+                                    <action selector="sliderChanged:" destination="PgM-My-rsD" eventType="valueChanged" id="ZdF-VV-rgw"/>
+                                </connections>
+                            </slider>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="200" minValue="0.0" maxValue="255" translatesAutoresizingMaskIntoConstraints="NO" id="YDh-f4-Wub">
+                                <rect key="frame" x="175" y="512" width="118" height="31"/>
+                                <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="181" y="673" width="187" height="31"/>
+                                </variation>
+                                <connections>
+                                    <action selector="sliderChanged:" destination="PgM-My-rsD" eventType="valueChanged" id="zMo-GJ-O2Y"/>
+                                </connections>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="G:XXX" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="56b-sq-44f">
+                                <rect key="frame" x="412" y="475" width="103" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.64538663321167888" blue="0.023836678832116789" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="418" y="636" width="103" height="21"/>
+                                </variation>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="B:XXX" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y7K-gC-r2Q">
+                                <rect key="frame" x="412" y="516" width="103" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.64538663321167888" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="418" y="677" width="103" height="21"/>
+                                </variation>
+                            </label>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="200" minValue="0.0" maxValue="255" translatesAutoresizingMaskIntoConstraints="NO" id="9tu-wk-PIC">
+                                <rect key="frame" x="175" y="437" width="118" height="31"/>
+                                <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="181" y="598" width="187" height="31"/>
+                                </variation>
+                                <connections>
+                                    <action selector="sliderChanged:" destination="PgM-My-rsD" eventType="valueChanged" id="CdJ-0h-lZd"/>
+                                </connections>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="R:XXX" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sQX-7N-eVc">
+                                <rect key="frame" x="412" y="437" width="103" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.93949589416058399" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="418" y="598" width="103" height="21"/>
+                                </variation>
+                            </label>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="10" minValue="0.0" maxValue="80" translatesAutoresizingMaskIntoConstraints="NO" id="uIz-Sj-cHn">
+                                <rect key="frame" x="175" y="61" width="118" height="31"/>
+                                <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="189" y="102" width="179" height="31"/>
+                                </variation>
+                                <connections>
+                                    <action selector="sliderChanged:" destination="PgM-My-rsD" eventType="valueChanged" id="nb6-Ci-OLD"/>
+                                </connections>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Brush" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="26t-QP-FWu">
+                                <rect key="frame" x="28" y="65" width="77" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="42" y="106" width="77" height="21"/>
+                                </variation>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="SliderforBrush" destination="uIz-Sj-cHn" id="w0Q-tw-o3N"/>
-                        <outlet property="SliderforOpacity" destination="ThQ-uh-efW" id="brt-9L-z2B"/>
+                        <outlet property="blueControl" destination="YDh-f4-Wub" id="zkw-Rc-5jX"/>
+                        <outlet property="blueLabel" destination="Y7K-gC-r2Q" id="PXf-fR-z4H"/>
                         <outlet property="brushControl" destination="uIz-Sj-cHn" id="Da1-FV-lSD"/>
                         <outlet property="brushPreview" destination="tOS-5g-YuK" id="eWV-Y2-WjL"/>
                         <outlet property="brushValueLabel" destination="7Hm-VR-lZZ" id="evQ-jx-4qL"/>
-                        <outlet property="labelBrush" destination="7Hm-VR-lZZ" id="u4D-GF-ySI"/>
-                        <outlet property="labelOpacity" destination="EBa-of-suj" id="ow3-Z0-ef5"/>
+                        <outlet property="greenControl" destination="7Rh-Ea-cex" id="lZl-QU-U75"/>
+                        <outlet property="greenLabel" destination="56b-sq-44f" id="WVX-UN-UBR"/>
                         <outlet property="opacityControl" destination="ThQ-uh-efW" id="J8Q-8P-gYr"/>
                         <outlet property="opacityPreview" destination="m91-8T-2zz" id="lW8-KZ-ppw"/>
                         <outlet property="opacityValueLabel" destination="EBa-of-suj" id="1tE-9G-C80"/>
+                        <outlet property="redControl" destination="9tu-wk-PIC" id="VmO-aT-LKK"/>
+                        <outlet property="redLabel" destination="sQX-7N-eVc" id="3OA-WE-WxJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lJa-Uw-Mob" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="990" y="427"/>
+            <point key="canvasLocation" x="956.25" y="400.5"/>
         </scene>
     </scenes>
     <resources>
@@ -402,6 +500,7 @@
         <image name="DarkGreen.png" width="53" height="332"/>
         <image name="DarkOrange.png" width="53" height="332"/>
         <image name="Grey.png" width="53" height="332"/>
+        <image name="LightBlue.png" width="53" height="332"/>
         <image name="LightGreen.png" width="53" height="332"/>
         <image name="Red.png" width="53" height="332"/>
         <image name="Setting-1.png" width="476" height="405"/>

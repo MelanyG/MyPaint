@@ -8,6 +8,8 @@
 
 #import "ColorPanelController.h"
 
+@protocol SettingsForColorDelegate;
+
 @interface ColorPanelController()
 
 @property (nonatomic, assign) CGFloat red;
@@ -16,13 +18,45 @@
 @property (nonatomic, assign) CGFloat width;
 @property (nonatomic, assign) NSInteger mode;
 @property (strong, nonatomic) IBOutlet UIButton *settings;
-
 @property (nonatomic, assign) NSInteger selectedButtonColor;
+@property (nonatomic, assign) BOOL shouldDelete;
 
 @end
 
 
 @implementation ColorPanelController
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    SettingsForColor * settingsVC = (SettingsForColor *)segue.destinationViewController;
+    settingsVC.delegate = self;
+    settingsVC.brush = self.brush;
+    settingsVC.opacity = self.opacity;
+    settingsVC.red = self.red;
+    settingsVC.green = self.green;
+    settingsVC.blue = self.blue;
+    
+}
+
+#pragma mark - SettingsForColorDelegate methods
+
+- (void)closeSettings:(id)sender
+{
+    
+    self.brush = ((SettingsForColor*)sender).brush;
+    self.opacity = ((SettingsForColor*)sender).opacity;
+    self.red = ((SettingsForColor*)sender).red;
+    self.green = ((SettingsForColor*)sender).green;
+    self.blue = ((SettingsForColor*)sender).blue;
+    [self dismissViewControllerAnimated:YES completion:nil];
+    self.color= [UIColor colorWithRed:(self.red)
+                                green:(self.green)
+                                 blue:(self.blue)
+                                alpha:self.opacity] ;
+    
+    [self.delegate didSelectSettings:self];
+}
+
 
 
 - (IBAction)ColorPressed:(id)sender
@@ -86,26 +120,36 @@
             self.blue = 0.0/255.0;
             break;
     }
-    self.color= [UIColor colorWithRed:(self.red) green:(self.green) blue:(self.blue) alpha:1] ;
+    self.color= [UIColor colorWithRed:(self.red)
+                                green:(self.green)
+                                 blue:(self.blue)
+                                alpha:1] ;
     
     [self.delegate didSelectColor:self.color];
    
 }
 - (IBAction)WidthSelected:(id)sender
 {
-    self.width=10;
-    [self.delegate didSelectWidth:self.width];
+    self.brush=5;
+    [self.delegate didSelectWidth:self.brush];
 }
+
+- (IBAction)pressedDelete:(id)sender
+{
+    self.shouldDelete = YES;
+    [self.delegate didSelectDelete];
+}
+
 
 - (IBAction)CorrectMode:(id)sender
 {
-    if (self.mode==0)
+    if (self.mode == 0)
     {
         self.mode++;
     }
-    else if(self.mode==1)
+    else if(self.mode == 1)
     {
-        self.mode=0;
+        self.mode = 0;
     }
     [self.delegate didSelectMode:self.mode];
 }

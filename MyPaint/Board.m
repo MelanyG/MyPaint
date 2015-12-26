@@ -22,7 +22,8 @@
 
 @implementation Board
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
@@ -43,8 +44,8 @@
         self.Colors = (ColorPanelController *)[segue destinationViewController];
     }
     
-    self.Figure.delegate=self.Canvas;
-    self.Colors.delegate=self.Canvas;
+    self.Figure.delegate = self.Canvas;
+    self.Colors.delegate = self.Canvas;
 }
 
 

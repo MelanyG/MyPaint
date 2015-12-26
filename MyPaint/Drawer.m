@@ -192,10 +192,10 @@ typedef enum shapeTypes
 
 -(void)drawPolygon:(CGRect)rect
 {
-    rect.size.width-=5;
-    rect.size.height-=5;
-    rect.origin.x+=5;
-    rect.origin.y+=5;
+    rect.size.width-=self.width;
+    rect.size.height-=self.width;
+    rect.origin.x+=self.width;
+    rect.origin.y+=self.width;
     UIBezierPath * aPath = [UIBezierPath bezierPath];
     
     // Set the starting point of the shape.
@@ -208,8 +208,8 @@ typedef enum shapeTypes
     [aPath addLineToPoint:CGPointMake(rect.size.width, (rect.size.height/3)*2)];
     [aPath addLineToPoint:CGPointMake((rect.size.width/3)*2, rect.size.height)];
     [aPath addLineToPoint:CGPointMake((rect.size.width/3), rect.size.height)];
-    [aPath addLineToPoint:CGPointMake((5), (rect.size.height/3)*2)];
-    [aPath addLineToPoint:CGPointMake((5), (rect.size.height/3))];
+    [aPath addLineToPoint:CGPointMake((self.width), (rect.size.height/3)*2)];
+    [aPath addLineToPoint:CGPointMake((self.width), (rect.size.height/3))];
     
     
     //changes start here !

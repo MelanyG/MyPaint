@@ -10,12 +10,19 @@
 #import "Board.h"
 #import "SettingsForColor.h"
 
-@protocol ColorDelegate;
 
-@interface ColorPanelController : UIViewController
+
+
+
+@interface ColorPanelController : UIViewController <SettingsForColorDelegate>
+
+
 
 
 @property (nonatomic, weak) id delegate;
 @property(nonatomic, strong) UIColor* color;
+@property(nonatomic, assign) CGFloat brush;
+@property(nonatomic, assign) CGFloat opacity;
 
 @end
+
