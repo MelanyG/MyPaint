@@ -30,7 +30,7 @@
 @property(nonatomic, strong) UIPinchGestureRecognizer* pinchGesture;
 @property(nonatomic, strong) UIRotationGestureRecognizer* rotationGesture;
 @property(nonatomic, strong) UIPanGestureRecognizer* panGesture;
-@property(nonatomic, assign) NSInteger coverTagsOfSubviews;
+//@property(nonatomic, assign) NSInteger coverTagsOfSubviews;
 @property(nonatomic, strong) NSMutableSet* arrayToDelete;
 
 @end
@@ -47,7 +47,6 @@
     self.arrayToDelete = [[NSMutableSet alloc] init];
     self.button = [UIColor blackColor];
     self.width = 10;
-    
     self.gestureTab = [[UITapGestureRecognizer alloc]initWithTarget:self
                                                              action:@selector(handleDoubleTap:) ];
     [self.view addGestureRecognizer: self.gestureTab];
@@ -122,15 +121,9 @@
         {
             if([self.arrayToDelete containsObject: self.myArray[j]])
             {
+                [self.arrayToDelete makeObjectsPerformSelector:@selector(removeFromSuperview)];
                 [self.myArray removeObjectAtIndex:j];
-                for (UIView *subView in self.view.subviews)
-                {
-                    if (subView.tag == j)
-                    {
-                        [subView removeFromSuperview];
-                    }
-                }
-                //[self.drawingsToProcede removeLastObject];
+                        NSLog(@"Subview removed");
                 [self.view setNeedsDisplay];
                 NSLog(@"Object removed");
             }
@@ -169,7 +162,6 @@
         self.currentView = [self.view hitTest:location withEvent:nil];
         if([self.currentView isKindOfClass:[Drawer class]])
         {
-            
             if( ![self.arrayToDelete containsObject:self.currentView])
             {
                 [self.arrayToDelete addObject: self.currentView];
@@ -190,7 +182,6 @@
                                      self.rect.alpha = 1.f;
                                  }];
                 
-                //[self.arrayToDelete removeObject:self.currentView];
             }
             gestureTab.delegate = self;
         }
@@ -265,7 +256,7 @@
                                               panGesture.view.center.y+translation.y);
         
         [panGesture setTranslation:CGPointZero inView:self.view];
-        self.currentView.center=[panGesture locationInView:self.view];
+        //self.currentView.center=[panGesture locationInView:self.view];
         
         
         
@@ -342,7 +333,6 @@
         
         self.rect.translatesAutoresizingMaskIntoConstraints = NO;
         //    self.rect.backgroundColor = [UIColor clearColor];
-        self.rect.tag=self.coverTagsOfSubviews++;
         [self.view addSubview:self.rect];
         [self.myArray addObject:self.rect];
         

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		360CD0C11C31351C002593B6 /* rsz_launchimage.png in Resources */ = {isa = PBXBuildFile; fileRef = 360CD0C01C31351C002593B6 /* rsz_launchimage.png */; };
 		36203C971C2C5D3800E21A3C /* SettingsForColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 36203C961C2C5D3800E21A3C /* SettingsForColor.m */; };
 		365D0A9A1C2D81B200AFA2ED /* 1211778056.png in Resources */ = {isa = PBXBuildFile; fileRef = 365D0A991C2D81B200AFA2ED /* 1211778056.png */; };
 		366C72901C22D0DC006076A5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 366C728F1C22D0DC006076A5 /* main.m */; };
@@ -17,6 +18,7 @@
 		366C729E1C22D0DD006076A5 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 366C729C1C22D0DD006076A5 /* LaunchScreen.xib */; };
 		366C72AA1C22D0DD006076A5 /* MyPaintTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 366C72A91C22D0DD006076A5 /* MyPaintTests.m */; };
 		366C72B51C22D17A006076A5 /* Drawer.m in Sources */ = {isa = PBXBuildFile; fileRef = 366C72B41C22D17A006076A5 /* Drawer.m */; };
+		3676C4181C30664B00A27CD9 /* LaunchImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3676C4171C30664B00A27CD9 /* LaunchImages.xcassets */; };
 		369B193A1C242E1700027889 /* ViewControllerMain.m in Sources */ = {isa = PBXBuildFile; fileRef = 369B19391C242E1700027889 /* ViewControllerMain.m */; };
 		369B193D1C2433DF00027889 /* ColorPanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 369B193C1C2433DF00027889 /* ColorPanelController.m */; };
 		369B19401C2434E700027889 /* FigureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 369B193F1C2434E700027889 /* FigureViewController.m */; };
@@ -56,6 +58,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		360CD0C01C31351C002593B6 /* rsz_launchimage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = rsz_launchimage.png; path = ../../../../../Downloads/rsz_launchimage.png; sourceTree = "<group>"; };
 		36203C951C2C5D3800E21A3C /* SettingsForColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingsForColor.h; path = ../SettingsForColor.h; sourceTree = "<group>"; };
 		36203C961C2C5D3800E21A3C /* SettingsForColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingsForColor.m; path = ../SettingsForColor.m; sourceTree = "<group>"; };
 		365D0A991C2D81B200AFA2ED /* 1211778056.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1211778056.png; sourceTree = "<group>"; };
@@ -74,6 +77,7 @@
 		366C72A91C22D0DD006076A5 /* MyPaintTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyPaintTests.m; sourceTree = "<group>"; };
 		366C72B31C22D17A006076A5 /* Drawer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Drawer.h; sourceTree = "<group>"; };
 		366C72B41C22D17A006076A5 /* Drawer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Drawer.m; sourceTree = "<group>"; };
+		3676C4171C30664B00A27CD9 /* LaunchImages.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = LaunchImages.xcassets; sourceTree = "<group>"; };
 		369B19381C242E1700027889 /* ViewControllerMain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerMain.h; sourceTree = "<group>"; };
 		369B19391C242E1700027889 /* ViewControllerMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerMain.m; sourceTree = "<group>"; };
 		369B193B1C2433DF00027889 /* ColorPanelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorPanelController.h; sourceTree = "<group>"; };
@@ -153,6 +157,7 @@
 				366C72B41C22D17A006076A5 /* Drawer.m */,
 				366C729A1C22D0DD006076A5 /* Images.xcassets */,
 				366C729C1C22D0DD006076A5 /* LaunchScreen.xib */,
+				3676C4171C30664B00A27CD9 /* LaunchImages.xcassets */,
 				369B19411C24374100027889 /* ViewControllers */,
 				366C728D1C22D0DC006076A5 /* Supporting Files */,
 			);
@@ -214,10 +219,10 @@
 				36DCD6171C29814600BF4709 /* Brown.png */,
 				36DCD6181C29814600BF4709 /* Custom-Color.png */,
 				36DCD6191C29814600BF4709 /* DarkGreen.png */,
+				360CD0C01C31351C002593B6 /* rsz_launchimage.png */,
 				36DCD61A1C29814600BF4709 /* DarkOrange.png */,
 				36DCD61B1C29814600BF4709 /* Eraser.png */,
 				36DCD61C1C29814600BF4709 /* g.png */,
-				36DCD61D1C29814600BF4709 /* Grey.png */,
 				36DCD61E1C29814600BF4709 /* LightBlue.png */,
 				36DCD61F1C29814600BF4709 /* LightGreen.png */,
 				36DCD6201C29814600BF4709 /* Opacity.png */,
@@ -230,6 +235,7 @@
 				36DCD6271C29814600BF4709 /* thickness.png */,
 				36DCD6281C29814600BF4709 /* width.png */,
 				36DCD6291C29814600BF4709 /* Yellow.png */,
+				36DCD61D1C29814600BF4709 /* Grey.png */,
 			);
 			path = Graphics;
 			sourceTree = "<group>";
@@ -316,6 +322,7 @@
 			files = (
 				36DCD6351C29814600BF4709 /* LightGreen.png in Resources */,
 				36DCD6331C29814600BF4709 /* Grey.png in Resources */,
+				3676C4181C30664B00A27CD9 /* LaunchImages.xcassets in Resources */,
 				366C72991C22D0DD006076A5 /* Main.storyboard in Resources */,
 				36DCD62B1C29814600BF4709 /* Black.png in Resources */,
 				36DCD63E1C29814600BF4709 /* width.png in Resources */,
@@ -340,6 +347,7 @@
 				36DCD6371C29814600BF4709 /* r.png in Resources */,
 				36DCD6301C29814600BF4709 /* DarkOrange.png in Resources */,
 				36DCD63C1C29814600BF4709 /* Setting-2.png in Resources */,
+				360CD0C11C31351C002593B6 /* rsz_launchimage.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -492,6 +500,7 @@
 				INFOPLIST_FILE = MyPaint/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
@@ -502,6 +511,7 @@
 				INFOPLIST_FILE = MyPaint/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
 		};

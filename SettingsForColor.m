@@ -84,22 +84,25 @@
     
     // ensure the values displayed are the current values
     
+    self.red = 0.5;
     int redIntValue = self.red * 255.0;
     self.redControl.value = redIntValue;
     [self sliderChanged:self.redControl];
     
+    self.green = 0.5;
     int greenIntValue = self.green * 255.0;
     self.greenControl.value = greenIntValue;
     [self sliderChanged:self.greenControl];
     
+    self.blue= 0.5;
     int blueIntValue = self.blue * 255.0;
     self.blueControl.value = blueIntValue;
     [self sliderChanged:self.blueControl];
     
-    self.brushControl.value = self.brush;
+    self.brushControl.value = self.brush=5;
     [self sliderChanged:self.brushControl];
     
-    self.opacityControl.value = self.opacity;
+    self.opacityControl.value = self.opacity=1;
     [self sliderChanged:self.opacityControl];
     
 }
