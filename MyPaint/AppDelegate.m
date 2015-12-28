@@ -18,7 +18,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    [NSThread sleepForTimeInterval:5]; //add 5 seconds longer.
+    //[NSThread sleepForTimeInterval:5]; //add 5 seconds longer.
     return YES;
 }
 

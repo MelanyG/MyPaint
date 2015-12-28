@@ -252,8 +252,8 @@
         //CORRET
         
         
-        self.currentView.center = CGPointMake(panGesture.view.center.x+translation.x,
-                                              panGesture.view.center.y+translation.y);
+        self.currentView.center = CGPointMake(self.currentView.center.x+translation.x,
+                                              self.currentView.center.y+translation.y);
         
         [panGesture setTranslation:CGPointZero inView:self.view];
         //self.currentView.center=[panGesture locationInView:self.view];

@@ -10,7 +10,6 @@
 
 @interface FigureViewController ()
 
-@property (strong, nonatomic) IBOutlet UISegmentedControl *segmentFigureContoler;
 
 @end
 
@@ -21,15 +20,22 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    self.segmentFigureContoler.transform = CGAffineTransformMakeRotation(M_PI / 2.0);
 }
 
 
-- (IBAction)selectShapeButtonPressed:(UISegmentedControl *)sender
-{
-    [self.delegate didSelectFigure:sender.selectedSegmentIndex];
+- (IBAction)selectFigurePressed:(UIButton *)sender {
+
+    [self.delegate didSelectFigure:sender.tag];
+
 }
+
+
+
+
+
+
+
+
 
 
 @end
