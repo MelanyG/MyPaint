@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		360CD0C11C31351C002593B6 /* rsz_launchimage.png in Resources */ = {isa = PBXBuildFile; fileRef = 360CD0C01C31351C002593B6 /* rsz_launchimage.png */; };
+		360CD0C61C317C57002593B6 /* Circle.png in Resources */ = {isa = PBXBuildFile; fileRef = 360CD0C21C317C57002593B6 /* Circle.png */; };
+		360CD0C71C317C57002593B6 /* Hexagon.png in Resources */ = {isa = PBXBuildFile; fileRef = 360CD0C31C317C57002593B6 /* Hexagon.png */; };
+		360CD0C81C317C57002593B6 /* thinSquare.png in Resources */ = {isa = PBXBuildFile; fileRef = 360CD0C41C317C57002593B6 /* thinSquare.png */; };
+		360CD0C91C317C57002593B6 /* Triangle.png in Resources */ = {isa = PBXBuildFile; fileRef = 360CD0C51C317C57002593B6 /* Triangle.png */; };
 		36203C971C2C5D3800E21A3C /* SettingsForColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 36203C961C2C5D3800E21A3C /* SettingsForColor.m */; };
 		365D0A9A1C2D81B200AFA2ED /* 1211778056.png in Resources */ = {isa = PBXBuildFile; fileRef = 365D0A991C2D81B200AFA2ED /* 1211778056.png */; };
 		366C72901C22D0DC006076A5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 366C728F1C22D0DC006076A5 /* main.m */; };
@@ -59,6 +63,10 @@
 
 /* Begin PBXFileReference section */
 		360CD0C01C31351C002593B6 /* rsz_launchimage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = rsz_launchimage.png; path = ../../../../../Downloads/rsz_launchimage.png; sourceTree = "<group>"; };
+		360CD0C21C317C57002593B6 /* Circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Circle.png; sourceTree = "<group>"; };
+		360CD0C31C317C57002593B6 /* Hexagon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Hexagon.png; sourceTree = "<group>"; };
+		360CD0C41C317C57002593B6 /* thinSquare.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thinSquare.png; sourceTree = "<group>"; };
+		360CD0C51C317C57002593B6 /* Triangle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Triangle.png; sourceTree = "<group>"; };
 		36203C951C2C5D3800E21A3C /* SettingsForColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingsForColor.h; path = ../SettingsForColor.h; sourceTree = "<group>"; };
 		36203C961C2C5D3800E21A3C /* SettingsForColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingsForColor.m; path = ../SettingsForColor.m; sourceTree = "<group>"; };
 		365D0A991C2D81B200AFA2ED /* 1211778056.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1211778056.png; sourceTree = "<group>"; };
@@ -212,6 +220,10 @@
 		36DCD6131C29814600BF4709 /* Graphics */ = {
 			isa = PBXGroup;
 			children = (
+				360CD0C21C317C57002593B6 /* Circle.png */,
+				360CD0C31C317C57002593B6 /* Hexagon.png */,
+				360CD0C41C317C57002593B6 /* thinSquare.png */,
+				360CD0C51C317C57002593B6 /* Triangle.png */,
 				365D0A991C2D81B200AFA2ED /* 1211778056.png */,
 				36DCD6141C29814600BF4709 /* b.png */,
 				36DCD6151C29814600BF4709 /* Black.png */,
@@ -330,8 +342,10 @@
 				36DCD6311C29814600BF4709 /* Eraser.png in Resources */,
 				36DCD63F1C29814600BF4709 /* Yellow.png in Resources */,
 				36DCD6321C29814600BF4709 /* g.png in Resources */,
+				360CD0C81C317C57002593B6 /* thinSquare.png in Resources */,
 				36DCD62E1C29814600BF4709 /* Custom-Color.png in Resources */,
 				36DCD6361C29814600BF4709 /* Opacity.png in Resources */,
+				360CD0C71C317C57002593B6 /* Hexagon.png in Resources */,
 				36DCD63B1C29814600BF4709 /* Setting-1.png in Resources */,
 				366C729E1C22D0DD006076A5 /* LaunchScreen.xib in Resources */,
 				36DCD62F1C29814600BF4709 /* DarkGreen.png in Resources */,
@@ -339,9 +353,11 @@
 				36DCD62C1C29814600BF4709 /* Blue.png in Resources */,
 				36DCD62D1C29814600BF4709 /* Brown.png in Resources */,
 				36DCD63D1C29814600BF4709 /* thickness.png in Resources */,
+				360CD0C91C317C57002593B6 /* Triangle.png in Resources */,
 				36DCD62A1C29814600BF4709 /* b.png in Resources */,
 				36DCD6391C29814600BF4709 /* reset-Small.png in Resources */,
 				366C729B1C22D0DD006076A5 /* Images.xcassets in Resources */,
+				360CD0C61C317C57002593B6 /* Circle.png in Resources */,
 				36DCD6341C29814600BF4709 /* LightBlue.png in Resources */,
 				36DCD6381C29814600BF4709 /* Red.png in Resources */,
 				36DCD6371C29814600BF4709 /* r.png in Resources */,
